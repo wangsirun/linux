@@ -9,7 +9,7 @@
 #include <asm/alternative-macros.h>
 #include <asm/cpucaps.h>
 #include <asm/cputype.h>
-#include <asm/hwcap.h>
+// #include <asm/hwcap.h>
 #include <asm/sysreg.h>
 
 #define MAX_CPU_FEATURES	128

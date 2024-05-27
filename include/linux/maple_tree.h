@@ -100,6 +100,7 @@ struct maple_metadata {
  * the same index.
  */
 
+// 叶子结点是16
 struct maple_range_64 {
 	struct maple_pnode *parent;
 	unsigned long pivot[MAPLE_RANGE64_SLOTS - 1];
@@ -121,6 +122,8 @@ struct maple_range_64 {
  * in this node, also called gaps.  This optimises the tree for allocating a
  * range.
  */
+// 使用高效的B树，分支因子10 - 16， 较少的高度和很多的节点node存储的指针数量
+// 增加缓存命中效率，位了解决mmap_lock锁争用的问题
 struct maple_arange_64 {
 	struct maple_pnode *parent;
 	unsigned long pivot[MAPLE_ARANGE64_SLOTS - 1];

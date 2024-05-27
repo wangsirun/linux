@@ -2331,6 +2331,7 @@ struct page *alloc_pages_noprof(gfp_t gfp, unsigned int order)
 	 * nor system default_policy
 	 */
 	if (!in_interrupt() && !(gfp & __GFP_THISNODE))
+		// 查看当前task的分配策略
 		pol = get_task_policy(current);
 
 	return alloc_pages_mpol_noprof(gfp, order, pol, NO_INTERLEAVE_INDEX,

@@ -651,6 +651,7 @@ static inline unsigned int mas_alloc_req(const struct ma_state *mas)
 static inline unsigned long *ma_pivots(struct maple_node *node,
 					   enum maple_type type)
 {
+	// 通过type来获取privot
 	switch (type) {
 	case maple_arange_64:
 		return node->ma64.pivot;
@@ -4636,6 +4637,7 @@ static void *mas_next_slot(struct ma_state *mas, unsigned long max, bool empty)
 retry:
 	node = mas_mn(mas);
 	type = mte_node_type(mas->node);
+	// 获取一个节点上有多少个子几点的指针
 	pivots = ma_pivots(node, type);
 	if (unlikely(mas_rewalk_if_dead(mas, node, save_point)))
 		goto retry;

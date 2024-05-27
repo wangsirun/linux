@@ -406,6 +406,7 @@ static inline unsigned long virt_to_pfn(const void *kaddr)
 })
 #define virt_to_page(x)		pfn_to_page(virt_to_pfn(x))
 #else
+// 这里可以看到是分配的内核的内存,也就是kernel的内存
 #define page_to_virt(x)	({						\
 	__typeof__(x) __page = x;					\
 	u64 __idx = ((u64)__page - VMEMMAP_START) / sizeof(struct page);\

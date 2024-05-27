@@ -8,6 +8,8 @@
 #ifndef __ASM_PGALLOC_H
 #define __ASM_PGALLOC_H
 
+#include "asm/pgtable-types.h"
+#include "asm/pgtable.h"
 #include <asm/pgtable-hwdef.h>
 #include <asm/processor.h>
 #include <asm/cacheflush.h>

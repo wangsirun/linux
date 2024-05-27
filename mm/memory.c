@@ -21,7 +21,6 @@
  *
  * Also corrected some "invalidate()"s - I wasn't doing enough of them.
  */
-
 /*
  * Real VM (paging to/from disk) started 18.12.91. Much more work and
  * thought has to go into this. Oh, well..
@@ -5444,11 +5443,13 @@ static vm_fault_t __handle_mm_fault(struct vm_area_struct *vma,
 	p4d_t *p4d;
 	vm_fault_t ret;
 
+	// 提取给的虚拟内存对应的pdd bit位置中对应的pdt的偏移量
 	pgd = pgd_offset(mm, address);
+	// 检查对应的偏移量是否为空，如果为空则创建一个entry项指向1个新的page
 	p4d = p4d_alloc(mm, pgd, address);
 	if (!p4d)
 		return VM_FAULT_OOM;
-
+	// 以下都是相同的逻辑，有就继续检查下一个entry,否则创建新的
 	vmf.pud = pud_alloc(mm, p4d, address);
 	if (!vmf.pud)
 		return VM_FAULT_OOM;
@@ -5875,6 +5876,7 @@ inval:
  */
 int __p4d_alloc(struct mm_struct *mm, pgd_t *pgd, unsigned long address)
 {
+	// 返回一个虚拟地址
 	p4d_t *new = p4d_alloc_one(mm, address);
 	if (!new)
 		return -ENOMEM;

@@ -43,6 +43,7 @@ struct mm_struct;
  * to the new storage.  The reference count of the new object is initialized
  * to 1, representing the caller of mpol_dup().
  */
+// 策略的粒度可以是task或者一个单独的vma
 struct mempolicy {
 	atomic_t refcnt;
 	unsigned short mode; 	/* See MPOL_* above */

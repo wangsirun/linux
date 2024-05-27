@@ -1346,6 +1346,7 @@ typedef struct pglist_data {
 	 * This is a per-node reserve of pages that are not available
 	 * to userspace allocations.
 	 */
+	// 一般来说都是内核用到的
 	unsigned long		totalreserve_pages;
 
 #ifdef CONFIG_NUMA

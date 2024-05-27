@@ -2,6 +2,7 @@
 #ifndef _LINUX_VMSTAT_H
 #define _LINUX_VMSTAT_H
 
+#include "linux/mm.h"
 #include <linux/types.h>
 #include <linux/percpu.h>
 #include <linux/mmzone.h>
