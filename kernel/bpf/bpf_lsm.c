@@ -203,7 +203,8 @@ bpf_lsm_func_proto(enum bpf_func_id func_id, const struct bpf_prog *prog)
 		if (func_proto)
 			return func_proto;
 	}
-
+	extern const struct bpf_func_proto bpf_inode_storage_get_proto;
+	extern const struct bpf_func_proto bpf_inode_storage_delete_proto;
 	switch (func_id) {
 	case BPF_FUNC_inode_storage_get:
 		return &bpf_inode_storage_get_proto;

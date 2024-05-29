@@ -13,6 +13,12 @@
  * Waiting for completion is a typically sync point, but not an exclusion point.
  */
 
+#include "sched.h"
+#include <linux/completion.h>
+#include <linux/spinlock.h>
+#include <linux/swait.h> 
+
+#define __sched		__section(".sched.text")
 static void complete_with_flags(struct completion *x, int wake_flags)
 {
 	unsigned long flags;

@@ -430,6 +430,7 @@ void page_alloc_sysctl_init(void);
  * in __alloc_pages_slowpath(). All other functions pass the whole structure
  * by a const pointer.
  */
+// 主要用于const参数传递
 struct alloc_context {
 	struct zonelist *zonelist;
 	nodemask_t *nodemask;

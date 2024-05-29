@@ -5,6 +5,12 @@
  * (C) 2004 Nadia Yvette Chambers, Oracle
  */
 
+#include "linux/wait.h"
+#include "linux/kthread.h"
+#include "linux/sched.h"
+#include "linux/sched/signal.h"
+#include "linux/spinlock.h"
+#include "sched.h"
 void __init_waitqueue_head(struct wait_queue_head *wq_head, const char *name, struct lock_class_key *key)
 {
 	spin_lock_init(&wq_head->lock);
