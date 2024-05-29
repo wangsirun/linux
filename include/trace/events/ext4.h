@@ -1,4 +1,5 @@
 /* SPDX-License-Identifier: GPL-2.0 */
+#include "linux/jbd2.h"
 #undef TRACE_SYSTEM
 #define TRACE_SYSTEM ext4
 
@@ -7,6 +8,11 @@
 
 #include <linux/writeback.h>
 #include <linux/tracepoint.h>
+typedef unsigned int ext4_group_t;
+typedef int ext4_grpblk_t;
+typedef __u32 ext4_lblk_t;
+typedef unsigned long long ext4_fsblk_t;
+typedef unsigned int		tid_t;
 
 struct ext4_allocation_context;
 struct ext4_allocation_request;
